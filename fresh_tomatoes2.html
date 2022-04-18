@@ -1,0 +1,187 @@
+
+<head>
+    <meta charset="utf-8">
+    <title>Trailers PIX</title>
+
+    <!-- Including Bootstrap -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    
+        <style type="text/css" media="screen">
+        body {
+            padding-top: 80px;
+            background-color: #333;
+            color: #CCC;
+        }
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .movie-tile {
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+        .movie-tile:hover {
+            background-color: #444;
+            cursor: pointer;
+        }
+        .movie-tile img {
+            box-shadow: 7px 7px 12px #222;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+        .two{
+          color: #42C0FB;
+        }
+        .one{
+          color: #ADFF2F;
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/bfb58adf21.js" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" charset="utf-8">
+      $(document).ready(function(){
+
+        // Animate in the movies when the page loads
+         $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+
+        // Pause the video when the modal is closed
+        $('.hanging-close, .modal-backdrop, .modal').on('click',function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+
+        // Start playing the video whenever the trailer modal is opened
+        $('.movie-tile').on('click', function (event) {
+            var trailerYouTubeId = $(this).data('trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+      
+       });
+      
+    </script>
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Main Page Content -->
+    <div class="container">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"><span class="two"><i class="fab fa-tumblr"></i></span><span class="one"><i class="fab fa-product-hunt"></i></span><span class="two"> Trailers</span><span class="one"> PIX</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="0LHxvxdRnYc" data-toggle="modal" data-target="#trailer">
+    <img src="https://stat.ameba.jp/user_images/20190108/19/jumbooomori/68/06/j/o0821120014335603368.jpg?caw=800" width="220" height="342">
+    <h2><b><i>Captain Marvel</i></b></h2>
+    <p>Carol Danvers becomes one of the universe's most powerful heroes when Earth is caught in the middle of a galactic war between two alien races</p>
+    <p><b><i>Starring</i></b>: Brie Larson, Samuel L. Jackson</p>
+    <p><b><i>Director</i></b>:  Anna Boden, Ryan Fleck</p>
+    <p><b><i>Release date</i></b>: March 8, 2019</p>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="RiANSSgCuJk" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/dc/Kabir_Singh.jpg/220px-Kabir_Singh.jpg" width="220" height="342">
+    <h2><b><i>Kabir Singh</i></b></h2>
+    <p>Kabir Singh is a movie where a short-tempered house surgeon gets used to drugs and drinks when his girlfriend is forced to marry another person</p>
+    <p><b><i>Starring</i></b>: Shahid Kapoor, Kiara Advani</p>
+    <p><b><i>Director</i></b>: Sandeep Reddy Vanga</p>
+    <p><b><i>Release date</i></b>: June 20, 2019</p>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="TcMBFSGVi1c" data-toggle="modal" data-target="#trailer">
+    <img src="https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_.jpg" width="220" height="342">
+    <h2><b><i>Avengers: EndGame</i></b></h2>
+    <p>With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe.</p>
+    <p><b><i>Starring</i></b>: Robert Downey Jr., Chris Evans, Mark Ruffalo</p>
+    <p><b><i>Director</i></b>: Anthony Russo, Joe Russo</p>
+    <p><b><i>Release date</i></b>: April 26, 2019</p>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="tsxemFX0a7k" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3d/Chhichhore_Poster.jpg/220px-Chhichhore_Poster.jpg" width="220" height="342">
+    <h2><b><i>Chhichhore</i></b></h2>
+    <p>Following a group of friends from university as they progress into middle-age life and go their own separate ways.</p>
+    <p><b><i>Starring</i></b>: Sushant Singh,Shraddha Kapoor,Varun Sharma</p>
+    <p><b><i>Director</i></b>: Nitesh Tiwari</p>
+    <p><b><i>Release date</i></b>: September 6, 2019</p>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="Nt9L1jCKGnE" data-toggle="modal" data-target="#trailer">
+    <img src="https://terrigen-cdn-dev.marvel.com/content/prod/1x/sffh_venice-high-res.jpg" width="220" height="342">
+    <h2><b><i>Spider-Man: FFH</i></b></h2>
+    <p>Following the events of Avengers: Endgame (2019), Spider-Man must step up to take on new threats in a world that has changed forever.</p>
+    <p><b><i>Starring</i></b>: Tom Holland, Samuel L. Jackson</p>
+    <p><b><i>Director</i></b>: Jon Watts</p>
+    <p><b><i>Release date</i></b>: July 5, 2019</p>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="QpvEWVVnICE" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/29/Super_30_The_Film.jpg/220px-Super_30_The_Film.jpg" width="220" height="342">
+    <h2><b><i>Super 30</i></b></h2>
+    <p>Based on life of Patna-based mathematician Anand Kumar who runs the famed Super 30 program for IIT aspirants in Patna.</p>
+    <p><b><i>Starring</i></b>: Hrithik Roshan, Mrunal Thakur, Nandish Singh</p>
+    <p><b><i>Director</i></b>: Vikas Bahl</p>
+    <p><b><i>Release date</i></b>: July 12, 2019</p>
+</div>
+
+    </div>
+    
+<div class="container text-center">
+  <a href="fresh_tomatoes.html" class="btn btn-info">Previous</a>
+</div>
+
+  </body>
+</html>

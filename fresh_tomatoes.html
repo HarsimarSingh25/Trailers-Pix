@@ -1,0 +1,187 @@
+
+<head>
+    <meta charset="utf-8">
+    <title>Trailers PIX</title>
+
+    <!-- Including Bootstrap -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    
+        <style type="text/css" media="screen">
+        body {
+            padding-top: 80px;
+            background-color: #333;
+            color: #CCC;
+        }
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .movie-tile {
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+        .movie-tile:hover {
+            background-color: #444;
+            cursor: pointer;
+        }
+        .movie-tile img {
+            box-shadow: 7px 7px 12px #222;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+        .two{
+          color: #42C0FB;
+        }
+        .one{
+          color: #ADFF2F;
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/bfb58adf21.js" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" charset="utf-8">
+      $(document).ready(function(){
+
+        // Animate in the movies when the page loads
+         $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+
+        // Pause the video when the modal is closed
+        $('.hanging-close, .modal-backdrop, .modal').on('click',function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+
+        // Start playing the video whenever the trailer modal is opened
+        $('.movie-tile').on('click', function (event) {
+            var trailerYouTubeId = $(this).data('trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+      
+       });
+      
+    </script>
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Main Page Content -->
+    <div class="container">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"><span class="two"><i class="fab fa-tumblr"></i></span><span class="one"><i class="fab fa-product-hunt"></i></span><span class="two"> Trailers</span><span class="one"> PIX</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="gcHH34cEl3Y" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3c/Housefull_4_poster.jpg/220px-Housefull_4_poster.jpg" width="220" height="342">
+    <h2><b><i>Housefull 4</i></b></h2>
+    <p>Housefull 4 is a 2019 Indian comedy film and is based on reincarnation, spanning a period of 600 years from 1419 to 2019</p>
+    <p><b><i>Starring</i></b>: Akshay Kumar,Ritesh Deshmukh,Bobby Deol</p>
+    <p><b><i>Director</i></b>: Farhad Samji</p>
+    <p><b><i>Release date</i></b>: October 25, 2019</p>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="zAGVQLHvwOY" data-toggle="modal" data-target="#trailer">
+    <img src="http://t0.gstatic.com/images?q=tbn:ANd9GcSJKLiEyyz1Q9RC8EBYl3ijr3nuGeyO2ETmwy6Kdq0AQtD0elWD" width="220" height="342">
+    <h2><b><i>Joker(2019)</i></b></h2>
+    <p>Joker is a 2019 American psychological thriller film that follows Arthur Fleck, a failed stand-up comedian who turns to a life of crime and chaos in Gotham City</p>
+    <p><b><i>Starring</i></b>: Joaquin Phoenix, Robert De Niro, Zazie Beetz</p>
+    <p><b><i>Director</i></b>: Todd Phillips</p>
+    <p><b><i>Release date</i></b>: August 31, 2019</p>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="8Qn_spdM5Zg" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/a/af/Star_Wars_The_Rise_of_Skywalker_poster.jpg" width="220" height="342">
+    <h2><b><i>Star Wars:ROS</i></b></h2>
+    <p>Star Wars: The Rise of Skywalker is an American epic space opera film and will be the third installment of the Star Wars sequel trilogy.</p>
+    <p><b><i>Starring</i></b>: Billie Lourd, Daisy Ridley, Carrie Fisher</p>
+    <p><b><i>Director</i></b>: J.J. Abrams</p>
+    <p><b><i>Release date</i></b>: December 20, 2019</p>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="-AJ7cLi1Jfk" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/8/89/Dabangg_3_poster.jpg" width="220" height="342">
+    <h2><b><i>Dabangg 3</i></b></h2>
+    <p>Dabangg 3 is an action comedy film and is the third installment of Dabangg series.</p>
+    <p><b><i>Starring</i></b>: Salman Khan, Sonakshi Sinha, Sudeep</p>
+    <p><b><i>Director</i></b>: Prabhu Deva</p>
+    <p><b><i>Release date</i></b>: December 20, 2019</p>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="rBxcF-r9Ibs" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/3/3c/JumanjiTheNextLevelTeaserPoster.jpg" width="220" height="342">
+    <h2><b><i>Jumanji:The Next Level</i></b></h2>
+    <p>Jumanji: The Next Level is an upcoming American fantasy adventure comedy film and is a sequel of Jumanji: Welcome to the Jungle</p>
+    <p><b><i>Starring</i></b>: Karen Gillan, Dwayne Johnson, Madison Iseman</p>
+    <p><b><i>Director</i></b>: Jake Kasdan</p>
+    <p><b><i>Release date</i></b>: December 13, 2019</p>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="tQ0mzXRk-oM" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/6/6f/War_official_poster.jpg" width="220" height="342">
+    <h2><b><i>WAR(2019)</i></b></h2>
+    <p>War(2019) is a action thriller film that follows an Indian soldier assigned to eliminate his former mentor who has gone rogue.</p>
+    <p><b><i>Starring</i></b>: Hrithik Roshan, Tiger Shroff, Vaani Kapoor</p>
+    <p><b><i>Director</i></b>: Siddharth Anand</p>
+    <p><b><i>Release date</i></b>: October 2, 2019</p>
+</div>
+
+    </div>
+    
+<div class="container text-center">
+  <a href="fresh_tomatoes2.html" class="btn btn-success">Next</a>
+</div> 
+
+  </body>
+</html>
